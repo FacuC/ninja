@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Running Ronin</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css" media="screen" title="no title" charset="utf-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32x32.png">
+</head>
+<body>
+  <header>
+    <h1>Running Ronin</h1>
+    <h2>Hitokiri Battousai</h2>
+  </header>
+  <div class="start">
+    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    <p>
+      para empezar
+    </p>
+  </div>
+  <div class="battousai col-xs-12">
+    <span id="comenzar" type="button" name="button">Click to start</span>
+    <div class="tips">
+      <div class="col-xs-3 col-xs-offset-2">
+        <img src="imagenes/sample-atacar.png" alt="sample-atacar" />
+        <p>ataca o esquiva a los enemigos que se acerquen</p>
+      </div>
+      <div class="col-xs-3 col-xs-offset-2">
+        <img src="imagenes/sample-esquivar.png" alt="sample-esquivar" />
+        <p>evade los proyectiles
+          los proyectiles no se pueden atacar</p>
+      </div>
+      <footer></footer>
+    </div>
+  </div>
+  <div class="juego">
+    <div class="ayuda col-xs-2">
+      <div class="separaAyuda">
+        <p>atacar</p>
+        <div class="sampleAttack"></div>
+        <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+        <footer></footer>
+      </div>
+      <div class="separaAyuda">
+        <p>saltar</p>
+        <div class="sampleJump"></div>
+        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+        <footer></footer>
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <div class="fondo">
+        <div class="chaboncito quieto">
+        </div>
+      </div>
+    </div>
+    <div class="score col-xs-2">
+      <p>
+        score:
+      </p>
+      <p id="puntos">
+        0
+      </p>
+    </div>
+    <div class="scoreboard col-xs-12">
+      <span class="col-xs-12">Scoreboard</span>
+    </div>
+    <footer></footer>
+  </div>
+</body>
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/script.js" charset="utf-8"></script>
+</html>
