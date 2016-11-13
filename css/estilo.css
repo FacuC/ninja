@@ -150,7 +150,7 @@ footer{
 }
 
 .muerte{
-  animation: muerte 0.5s steps(6) forwards;
+  animation: muerte 0.4s steps(6) forwards;
 }
 
 .start{
@@ -163,7 +163,7 @@ footer{
 
 .muerteF{
   background: url('../imagenes/muerteF.png') left 0px;
-  animation: muerteF 0.5s steps(6) forwards;
+  animation: muerteF 0.4s steps(6) forwards;
 }
 
 .fondo{

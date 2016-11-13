@@ -45,7 +45,7 @@ $(document).keydown(function(e){
     gameStatus = true;
     setTimers();
   }
-  else if (e.keyCode === 38 && !($(".chaboncito").hasClass("quieto")) && !($(".chaboncito").hasClass("attack")) && gameStatus&& !($(".chaboncito").hasClass("muerte"))&& !($(".chaboncito").hasClass("muerteF"))) {
+  else if (e.keyCode === 38 && !($(".chaboncito").hasClass("quieto")) && !($(".chaboncito").hasClass("attack")) && gameStatus&& !($(".chaboncito").hasClass("muerte")) && !($(".chaboncito").hasClass("muerteF"))) {
     $(".chaboncito").removeClass("corriendo");
     $(".chaboncito").addClass("saltando");
     evade.play();
@@ -55,7 +55,7 @@ $(document).keydown(function(e){
       $(".chaboncito").addClass("corriendo");
     });
   }
-  else if (e.keyCode === 40 && !($(".chaboncito").hasClass("saltando")) && !($(".chaboncito").hasClass("quieto")) && gameStatus && gameStatus&& !($(".chaboncito").hasClass("muerte"))&& !($(".chaboncito").hasClass("muerteF"))) {
+  else if (e.keyCode === 40 && !($(".chaboncito").hasClass("saltando")) && !($(".chaboncito").hasClass("quieto")) && gameStatus && !($(".chaboncito").hasClass("muerte")) && !($(".chaboncito").hasClass("muerteF"))) {
     $(".chaboncito").removeClass("corriendo");
     $(".chaboncito").addClass("attack");
     sword.play();
@@ -68,8 +68,13 @@ $(document).keydown(function(e){
 })
 
 function gameOver() {
-  gameStatus = false;
   listoParaEmpezar = true;
+  var obstaculos = $(".contenedor");
+  if (obstaculos.length > 1) {
+    for (var i = 0; i < obstaculos.length; i++) {
+      $(obstaculos[i]).stop(true, false);
+    }
+  }
   fondo.style.webkitAnimationPlayState="paused";
   agregarOrdenado(score);
   mostrarScoreboard();
@@ -105,11 +110,13 @@ function addObstacle(velocidad) {
         });
       }
       else if(gameStatus){//battousai fue golpeado por la bola de fuego
+        fondo.style.webkitAnimationPlayState="paused";
         listoParaEmpezar = false;
         gameStatus = false;
         var obstaculos = $(".contenedor");
         for (var i = 0; obstaculos[i] != null; i++) {
           if (obstaculos[i] != obstaculoActual) {
+            $(obstaculos[i]).stop(true, false);
             $(obstaculos[i]).remove();
           }
         }
@@ -187,21 +194,24 @@ function addEnemy(velocidad) {
         });
       }
       else if(gameStatus){//battousai fue golpeado por el enemigo
+        fondo.style.webkitAnimationPlayState="paused";
         listoParaEmpezar = false;
         gameStatus = false;
-        hit.play();
         var obstaculos = $(".contenedor");
         for (var i = 0; obstaculos[i] != null; i++) {
           if (obstaculos[i] != obstaculoActual) {
+            $(obstaculos[i]).stop(true, false);
             $(obstaculos[i]).remove();
           }
         }
+        hit.play();
         $(enemy).removeClass("enemigo");
         $(enemy).addClass("enemigoAttack");
         $(obstaculoActual).animate({right: $(".fondo").width()-80}, 400, "linear", function () {
 
         });
         $(".chaboncito").removeClass("corriendo");
+        $(".chaboncito").removeClass("attack");
         $(".chaboncito").addClass("muerte");
         $(".chaboncito").animate({left: 350}, 600, "linear", function () {
           gameOver();
