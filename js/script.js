@@ -69,6 +69,7 @@ $(document).keydown(function(e){
 
 function gameOver() {
   gameStatus = false;
+  listoParaEmpezar = true;
   fondo.style.webkitAnimationPlayState="paused";
   agregarOrdenado(score);
   mostrarScoreboard();
@@ -104,6 +105,7 @@ function addObstacle(velocidad) {
         });
       }
       else if(gameStatus){//battousai fue golpeado por la bola de fuego
+        listoParaEmpezar = false;
         gameStatus = false;
         var obstaculos = $(".contenedor");
         for (var i = 0; obstaculos[i] != null; i++) {
@@ -185,6 +187,7 @@ function addEnemy(velocidad) {
         });
       }
       else if(gameStatus){//battousai fue golpeado por el enemigo
+        listoParaEmpezar = false;
         gameStatus = false;
         hit.play();
         var obstaculos = $(".contenedor");
@@ -216,7 +219,7 @@ function mostrarScore() {
 }
 
 function mostrarBonus(bonus) {
-  $(".fondo").append('<p class="popup">'+bonus+'</p>')
+  $(".fondo").append('<p class="popup"><span class="signo">+</span>'+bonus+'</p>')
   var bonusAr = $(".popup").length;
   var bonusActual = $(".popup")[bonusAr - 1];
   $(bonusActual).one('webkitAnimationEnd oanimationend msAnimationEnd animationend',

@@ -2,6 +2,10 @@ body{
   font-family: samurai;
 }
 
+.signo{
+  font-family: sans-serif;
+}
+
 @font-face {
   font-family: samurai;
   src: url('../fonts/samurai.ttf');
@@ -228,7 +232,7 @@ footer{
   position: relative;
   width: 100px;
   top: 30px;
-  left: 0px;
+  left: 20px;
   font-size: 30px;
   font-family: samurai;
   animation: popup 1s forwards;
