@@ -9,12 +9,18 @@ var swordHit = new Audio('sounds/033.wav');
 var hit = new Audio('sounds/014.wav');
 var fire = new Audio('sounds/021.wav');
 var evade = new Audio('sounds/008.wav');
+var power = new Audio('sounds/power.mp3');
 
 $("#comenzar").on("click", function() {
   listoParaEmpezar = true;
   $(".battousai").slideToggle();
   $(".start").slideToggle();
   $(".juego").slideToggle();
+  power.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
+power.play();
 })
 
 $(document).keydown(function(e){
@@ -244,5 +250,5 @@ function setTimers() {
     else {
       clearTimeout(timer);
     }
-  }, 2000);
+  }, 1000);
 }
