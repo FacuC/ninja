@@ -10,6 +10,7 @@ var hit = new Audio('sounds/014.wav');
 var fire = new Audio('sounds/021.wav');
 var evade = new Audio('sounds/008.wav');
 var power = new Audio('sounds/power.mp3');
+power.volume = 0.5;
 
 $("#comenzar").on("click", function() {
   var obstaculos = $(".contenedor");
