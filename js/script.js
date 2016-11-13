@@ -235,6 +235,9 @@ function mostrarBonus(bonus) {
   $(bonusActual).one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
   function(e) {
     $(bonusActual).slideUp(500);
+    $(bonusActual).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function () {
+      $(bonusActual).remove();
+    })
   });
 }
 
