@@ -75,7 +75,7 @@ function gameOver() {
 var enemigo = '<div class="contenedor"><div class="enemigo"></div></div>'
 var obstaculo = "<div class='contenedor'><div class='fireball'></div></div>"
 
-var puntoChoque =$(".fondo").width() - 150;
+var puntoChoque =$(".fondo").width() - 250;
 
 
 function addObstacle(velocidad) {
@@ -152,7 +152,7 @@ function addEnemy(velocidad) {
   $(".fondo").append(enemigo);
   var obstaculos = $(".contenedor");
   var obstaculoActual = obstaculos[obstaculos.length - 1];
-  var puntoE = puntoChoque-90;
+  var puntoE = puntoChoque;
   $(obstaculoActual).animate(
     {right: puntoE+"px"},
     velocidad,
