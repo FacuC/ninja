@@ -10,6 +10,8 @@ var hit = new Audio('sounds/014.wav');
 var fire = new Audio('sounds/021.wav');
 var evade = new Audio('sounds/008.wav');
 var power = new Audio('sounds/power.mp3');
+var chino = new Audio('sounds/chino.mp3');
+chino.play();
 power.volume = 0.5;
 
 $("#comenzar").on("click", function() {
@@ -25,6 +27,7 @@ $("#comenzar").on("click", function() {
     this.currentTime = 0;
     this.play();
 }, false);
+chino.pause();
 power.play();
 })
 
