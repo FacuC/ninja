@@ -9,7 +9,7 @@ var swordHit = new Audio('sounds/033.wav');
 var hit = new Audio('sounds/014.wav');
 var fire = new Audio('sounds/021.wav');
 var evade = new Audio('sounds/008.wav');
-var power = new Audio('sounds/power.mp3');
+var power = new Audio('sounds/Ninja.mp3');
 var chino = new Audio('sounds/chino.mp3');
 chino.play();
 power.volume = 0.5;
